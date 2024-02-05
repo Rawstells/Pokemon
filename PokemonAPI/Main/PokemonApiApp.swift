@@ -1,18 +1,18 @@
 //
-//  PokemonAPIApp.swift
+//  PokemonApiApp.swift
 //  PokemonAPI
 //
-//  Created by Joan Narvaez on 30/01/24.
+//  Created by Joan Narvaez on 2/02/24.
 //
 
 import SwiftUI
 import SwiftData
 
 @main
-struct PokemonAPIApp: App {
-    var sharedModelContainer: ModelContainer = {
+struct PokemonApiApp: App {
+    /* var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            Item.self,
+            PokemonResponse.self,
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
@@ -21,12 +21,12 @@ struct PokemonAPIApp: App {
         } catch {
             fatalError("Could not create ModelContainer: \(error)")
         }
-    }()
+    }()*/
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            PokemonsFactory.getPokemonsView()
         }
-        .modelContainer(sharedModelContainer)
+        .modelContainer(for: [ResultsResponse.self])
     }
 }
